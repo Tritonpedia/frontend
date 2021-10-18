@@ -17,10 +17,10 @@ yarn install
 yarn start
 ```
 
-### Frontend
+### Backend 
 
 Written in Javascript with Express.
-Located in the client folder.
+Located in the server folder.
 
 #### Install Dependencies
 ```
