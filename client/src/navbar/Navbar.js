@@ -3,7 +3,7 @@ import TabItem from './TabItem';
 import './NavStyles.css';
 import { useHistory } from 'react-router';
 
-const server = 'http://glacial-ocean-22444.herokuapp.com';
+const server = 'https://glacial-ocean-22444.herokuapp.com';
 const getOrgsUrl = `${server}/organization`;
 const getSectionsUrl = `${server}/section`;
 const getDepartmentsUrl = `${server}/department`;

@@ -3,7 +3,7 @@ import './userProfile.css';
 import { ReactComponent as InfoDots } from './res/info-dots.svg';
 import { PasswordDialog } from '../popups/dialogs';
 import { useHistory } from 'react-router';
-const server = "http://glacial-ocean-22444.herokuapp.com"
+const server = "https://glacial-ocean-22444.herokuapp.com"
 const getProfileUrl = `${server}/users/profile`;
 const getSectionUrl = `${server}/section`;
 const getClassUrl = `${server}/class`;

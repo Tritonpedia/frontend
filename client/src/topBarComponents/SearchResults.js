@@ -42,12 +42,12 @@ const SearchResults = (props) => {
 
     function fetchContentList() {
         let entries = [];
-        fetch(`http://glacial-ocean-22444.herokuapp.com/department`)
+        fetch(`https://glacial-ocean-22444.herokuapp.com/department`)
             .then(response => response.json())
             .then(data => {
                 data.departments.forEach(department => {
                     department.classes.forEach(course => {
-                        fetch(`http://glacial-ocean-22444.herokuapp.com/class/${course}`)
+                        fetch(`https://glacial-ocean-22444.herokuapp.com/class/${course}`)
                             .then(response => response.json())
                             .then(data => {
                                 data.department = department.name;
@@ -59,7 +59,7 @@ const SearchResults = (props) => {
             .catch(error => {
                 console.error(error);
             })
-        fetch(`http://glacial-ocean-22444.herokuapp.com/organization`)
+        fetch(`https://glacial-ocean-22444.herokuapp.com/organization`)
             .then(response => response.json())
             .then(data => {
                 data.organizations.forEach(element => {

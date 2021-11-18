@@ -9,7 +9,7 @@ import PathDropdownMenu from './PathDropdownMenu';
 import OrgContent from './OrgContent';
 import { useParams } from 'react-router';
 
-const rootBackendURL = "http://glacial-ocean-22444.herokuapp.com"
+const rootBackendURL = "https://glacial-ocean-22444.herokuapp.com"
 /**
  * General organization article template.
  *  
