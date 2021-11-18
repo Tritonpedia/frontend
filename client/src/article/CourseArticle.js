@@ -9,7 +9,7 @@ import PathDropdownMenu from './PathDropdownMenu';
 import { useParams } from 'react-router';
 import CourseContent from './CourseContent';
 
-const rootBackendURL = "http://localhost:5000"
+const rootBackendURL = "http://glacial-ocean-22444.herokuapp.com"
 
 /**
  * Called when article type is changed
