@@ -4,10 +4,10 @@ import { UserContext } from '../contexts/UserContext';
 import './dialogs.css';
 
 
-const loginUrl = "http://localhost:5000/users/login";
-const signupUrl = "http://localhost:5000/users/register";
-const resetPasswordUrl = "http://localhost:5000/users/changePassword";
-// const enrollUrl = "http://localhost:5000/enrolled_section";
+const loginUrl = "http://glacial-ocean-22444.herokuapp.com/users/login";
+const signupUrl = "http://glacial-ocean-22444.herokuapp.com/users/register";
+const resetPasswordUrl = "http://glacial-ocean-22444.herokuapp.com/users/changePassword";
+// const enrollUrl = "http://glacial-ocean-22444.herokuapp.com/enrolled_section";
 
 const userAPI = {
   login: async function (email, password) {
@@ -379,7 +379,7 @@ export function EnrollDialog({ show, hide, section, updateIsEnrolled }) {
     //   return;
     // }
     e.preventDefault();
-    fetch(`http://localhost:5000/enrolled_section/${section._id}`, {
+    fetch(`http://glacial-ocean-22444.herokuapp.com/enrolled_section/${section._id}`, {
       method: 'POST',
       credentials: 'same-origin',
       headers: {

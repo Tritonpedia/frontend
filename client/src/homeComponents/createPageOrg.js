@@ -72,7 +72,7 @@ function createPageOrg(){
             website: websiteInput.value,
         }
 
-        fetch(`http://localhost:5000/organization`, {
+        fetch(`http://glacial-ocean-22444.herokuapp.com/organization`, {
             method: 'POST', 
             headers: {
                 'content-type': "application/json",

@@ -22,7 +22,7 @@ import SectionArticle from './article/SectionArticle';
 import { UserContext } from './contexts/UserContext';
 import { useContext, useEffect } from 'react';
 
-const server = "http://localhost:5000"
+const server = "https://glacial-ocean-22444.herokuapp.com/"
 const getProfileUrl = `${server}/users/profile`;
 
 function App() {

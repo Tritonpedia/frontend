@@ -63,8 +63,9 @@ function createPageClass() {
         }
 
         console.log(postBody);
-        fetch(`http://localhost:5000/department/${typeInput.value}`, {
-            method: 'GET',
+
+        fetch(`http://glacial-ocean-22444.herokuapp.com/class/${typeInput.value}`, {
+            method: 'POST', 
             headers: {
                 'content-type': "application/json",
                 'auth_token': JWTtoken
