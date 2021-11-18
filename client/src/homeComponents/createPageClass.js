@@ -72,7 +72,7 @@ function createPageClass() {
             }
         }).then(response => {
             if (!response.json()["value"]) {
-                fetch(`http://localhost:5000/department/`, {
+                fetch(`https://glacial-ocean-22444.herokuapp.com/department/`, {
                     method: 'POST',
                     headers: {
                         'content-type': "application/json",
@@ -82,7 +82,7 @@ function createPageClass() {
                         name: typeInput.value
                     })
                 }).then(() => {
-                    fetch(`http://localhost:5000/class/${typeInput.value
+                    fetch(`https://glacial-ocean-22444.herokuapp.com/class/${typeInput.value
                         }`, {
                         method: 'POST',
                         headers: {
@@ -94,7 +94,7 @@ function createPageClass() {
 
                 });
             } else {
-                fetch(`http://localhost:5000/class/${typeInput.value}`, {
+                fetch(`https://glacial-ocean-22444.herokuapp.com/class/${typeInput.value}`, {
                     method: 'POST',
                     headers: {
                         'content-type': "application/json",
