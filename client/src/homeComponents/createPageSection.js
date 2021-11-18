@@ -139,7 +139,7 @@ function createPageSection(){
         console.log(postBody);
         let classID;
 
-        fetch(`http://glacial-ocean-22444.herokuapp.com/class`)
+        fetch(`https://glacial-ocean-22444.herokuapp.com/class`)
         .then(response => response.json())
         .then(data => {
             data.classes.forEach(element => {
@@ -147,7 +147,7 @@ function createPageSection(){
                     classID = element._id
                     console.log(classID);
 
-                    fetch(`http://glacial-ocean-22444.herokuapp.com/section/${classID}`, {
+                    fetch(`https://glacial-ocean-22444.herokuapp.com/section/${classID}`, {
                     method: 'POST', 
                     headers: {
                             'content-type': "application/json",

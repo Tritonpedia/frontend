@@ -297,7 +297,7 @@ function SectionContent(props) {
     const updateIsEnrolled = useCallback(() => {
         if (user.enrolled_sections) {
             user.enrolled_sections.forEach(element => {
-                fetch(`http://glacial-ocean-22444.herokuapp.com/enrolled_section/${element}`, {
+                fetch(`https://glacial-ocean-22444.herokuapp.com/enrolled_section/${element}`, {
                     headers: {
                         'auth_token': user.token
                     }
@@ -306,7 +306,7 @@ function SectionContent(props) {
                     .then(data => {
                         console.log(data);
                         if (data) {
-                            fetch(`http://glacial-ocean-22444.herokuapp.com/section/${data["section_id"]}`)
+                            fetch(`https://glacial-ocean-22444.herokuapp.com/section/${data["section_id"]}`)
                                 .then(response => response.json())
                                 .then(sectionData => {
                                     if (sectionData._id === section._id) {
