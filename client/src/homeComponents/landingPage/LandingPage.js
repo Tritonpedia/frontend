@@ -15,8 +15,7 @@ const LandingPage = () => {
         <div style={{position: 'relative'}}>
             <div className="landing-wrapper"></div>
         <div className="landing-container">
-            <h1>UCSD</h1>
-            <h2>Wiki</h2>
+            <h1>Tritonpedia</h1>
             <div className="landing-icon-container">
                 <HomeSVG className="landing-svg" />
                 <Link exact to="/courses" style={{ position: 'absolute', top: '20%', right: '70%' }}>Courses</Link>
