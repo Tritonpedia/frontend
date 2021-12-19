@@ -9,7 +9,7 @@ import PathDropdownMenu from './PathDropdownMenu';
 import { useParams } from 'react-router';
 import SectionContent from './SectionContent';
 
-const rootBackendURL = "https://glacial-ocean-22444.herokuapp.com"
+const rootBackendURL = process.env.REACT_APP_BACKEND_URL
 
 /**
  * Called when article type is changed

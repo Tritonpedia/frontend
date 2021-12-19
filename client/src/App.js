@@ -17,14 +17,16 @@ import {
 
 import './App.css';
 import UserProfile from './userProfile/UserProfile';
-// import { LoginDialog } from './popups/dialogs';
 import SectionArticle from './article/SectionArticle';
 import { UserContext } from './contexts/UserContext';
 import { useContext, useEffect } from 'react';
 
-const server = "https://glacial-ocean-22444.herokuapp.com/"
-const getProfileUrl = `${server}/users/profile`;
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL; 
+const getProfileUrl = `${REACT_APP_BACKEND_URL}/users/profile`;
 
+/**
+ * Root level App component
+ */
 function App() {
 
   const { setUser } = useContext(UserContext);

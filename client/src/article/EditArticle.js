@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../contexts/UserContext';
 
-const rootBackendURL = "https://glacial-ocean-22444.herokuapp.com"
+const rootBackendURL = process.env.REACT_APP_BACKEND_URL
 
 export const EditSection = ({ course, section, closeSectionEdit, fetchSectionData }) => {
 

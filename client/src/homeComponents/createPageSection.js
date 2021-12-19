@@ -1,6 +1,9 @@
 import React from 'react'
 import "./createPage.css";
 //import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL; 
+
 function createPageSection(){
 
     
@@ -139,7 +142,7 @@ function createPageSection(){
         console.log(postBody);
         let classID;
 
-        fetch(`https://glacial-ocean-22444.herokuapp.com/class`)
+        fetch(`${REACT_APP_BACKEND_URL}/class`)
         .then(response => response.json())
         .then(data => {
             data.classes.forEach(element => {
@@ -147,7 +150,7 @@ function createPageSection(){
                     classID = element._id
                     console.log(classID);
 
-                    fetch(`https://glacial-ocean-22444.herokuapp.com/section/${classID}`, {
+                    fetch(`${REACT_APP_BACKEND_URL}/section/${classID}`, {
                     method: 'POST', 
                     headers: {
                             'content-type': "application/json",

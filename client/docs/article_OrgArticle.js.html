@@ -1,4 +1,32 @@
-import React, { useEffect, useState } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: article/OrgArticle.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: article/OrgArticle.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from 'react';
 
 import './Article.css';
 
@@ -56,29 +84,29 @@ function OrgArticle() {
     }, [params])
 
     return (
-        <div id="article">
-            <img className="article-banner" src={banner} alt={org.name + " banner"}></img>
-            <div className="article-header">
-                <ul className="article-path">
-                    <PathItem name="Orgs">
-                        <PathDropdownMenu
+        &lt;div id="article">
+            &lt;img className="article-banner" src={banner} alt={org.name + " banner"}>&lt;/img>
+            &lt;div className="article-header">
+                &lt;ul className="article-path">
+                    &lt;PathItem name="Orgs">
+                        &lt;PathDropdownMenu
                             list={[{ "type": "Courses" }, { "type": "Orgs" }]}
                             type={"type"}
                             updateSelection={updateSelectedArticleType}
                             selectedItem={"Orgs"} />
-                    </PathItem>
-                    <PathItem name={org.name}>
-                        <PathDropdownMenu
+                    &lt;/PathItem>
+                    &lt;PathItem name={org.name}>
+                        &lt;PathDropdownMenu
                             list={orgList}
                             type={"name"}
                             updateSelection={updateSelectedOrg}
                             selectedItem={org.name}
                         />
-                    </PathItem>
-                </ul>
-            </div>
-            <OrgContent org={org} fetchOrgData={fetchOrgList}/>
-        </div>
+                    &lt;/PathItem>
+                &lt;/ul>
+            &lt;/div>
+            &lt;OrgContent org={org} fetchOrgData={fetchOrgList}/>
+        &lt;/div>
     );
 }
 
@@ -117,29 +145,51 @@ export const BlankOrg = () => {
     }, [])
 
     return (
-        <div id="article">
-            <img className="article-banner" src={banner} alt={"org banner"}></img>
-            <div className="article-header">
-                <ul className="article-path">
-                    <PathItem name="Orgs">
-                        <PathDropdownMenu
+        &lt;div id="article">
+            &lt;img className="article-banner" src={banner} alt={"org banner"}>&lt;/img>
+            &lt;div className="article-header">
+                &lt;ul className="article-path">
+                    &lt;PathItem name="Orgs">
+                        &lt;PathDropdownMenu
                             list={[{ "type": "Courses" }, { "type": "Orgs" }]}
                             type={"type"}
                             updateSelection={updateSelectedArticleType}
                             selectedItem={"Orgs"} />
-                    </PathItem>
-                    <PathItem name={"Select an Org..."}>
-                        <PathDropdownMenu
+                    &lt;/PathItem>
+                    &lt;PathItem name={"Select an Org..."}>
+                        &lt;PathDropdownMenu
                             list={orgList}
                             type={"name"}
                             updateSelection={updateSelectedOrg}
                             selectedItem={""}
                         />
-                    </PathItem>
-                </ul>
-            </div>
-            <h3 className="article-body">Select an Organization from the dropdown, search bar or navbar.</h3>
-        </div>
+                    &lt;/PathItem>
+                &lt;/ul>
+            &lt;/div>
+            &lt;h3 className="article-body">Select an Organization from the dropdown, search bar or navbar.&lt;/h3>
+        &lt;/div>
     )
 
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#CourseArticle">CourseArticle</a></li><li><a href="global.html#LinkEntry">LinkEntry</a></li><li><a href="global.html#LinksPanel">LinksPanel</a></li><li><a href="global.html#OrgArticle">OrgArticle</a></li><li><a href="global.html#PathItem">PathItem</a></li><li><a href="global.html#querySearch">querySearch</a></li><li><a href="global.html#SectionArticle">SectionArticle</a></li><li><a href="global.html#SectionContent">SectionContent</a></li><li><a href="global.html#updateSelectedArticleType">updateSelectedArticleType</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sat Dec 18 2021 23:27:10 GMT-0800 (Pacific Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
