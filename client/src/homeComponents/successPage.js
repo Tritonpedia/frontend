@@ -5,7 +5,7 @@ function successPage(){
 
     return(
         
-        <div className="spacing" style={{backgroundImage: "url(https://rady.ucsd.edu/images/start-me-up/background2.jpg)", backgroundRepeat: "no-repeat", backgroundPosition: "bottom"}}>
+        <div className="spacing" className="successBackground">
             <div className="successDialog">
                 <p>Successfully submitted!</p>
                 <p>Thank you for creating a new page.</p>
