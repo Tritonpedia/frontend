@@ -10,10 +10,10 @@
 }
 
 .landing-wrapper {
-	background: url('./res/giesel.jpeg');
+	/* background: url('./res/giesel.jpeg');
 	background-size: cover;
 	background-repeat: repeat;
-	filter: blur(9px);
+	filter: blur(9px); */
 	height: 100vh;
 	top: 0;
 }

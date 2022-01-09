@@ -15,7 +15,8 @@ const LandingPage = () => {
         <div style={{position: 'relative'}}>
             <div className="landing-wrapper"></div>
         <div className="landing-container">
-            <h1>Tritonpedia</h1>
+            <h1 className="text-3xl font-bold">Tritonpedia</h1>
+            {/* <h1>Tritonpedia</h1>
             <div className="landing-icon-container">
                 <HomeSVG className="landing-svg" />
                 <Link exact to="/courses" style={{ position: 'absolute', top: '20%', right: '70%' }}>Courses</Link>
@@ -26,7 +27,7 @@ const LandingPage = () => {
                 <Link exact to="/userProfile" style={{ position: 'absolute', top: '60%', left: '70%' }}>Profile</Link>
                 <Link exact to="/createPageOrg" style={{ position: 'absolute', top: '80%', right: '60%' }}>Create Org</Link>
                 <Link exact to="/orgs/ACM" style={{ position: 'absolute', top: '80%', left: '60%' }}>ACM</Link>
-            </div>
+            </div> */}
             <div style={{ position: "absolute", top: 0 }}>
                 {loginDialogShown && <LoginDialog show={showLoginDialog} hide={hideLoginDialog} />}
                 {signupDialogShown && <SignupDialog show={showSignupDialog} hide={hideSignupDialog} />}
