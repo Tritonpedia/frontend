@@ -6,7 +6,7 @@ import { ReactComponent as CreateSVG } from './res/create.svg';
 
 import SearchResults from './SearchResults';
 import SearchBar from './SearchBar'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { LoginDialog, SignupDialog } from '../popups/dialogs';
 import { UserContext } from '../contexts/UserContext';
 
@@ -62,6 +62,18 @@ const TopBar = () => {
     const [displayLoginPrompt, setDisplayLoginPrompt] = useState(false);
     const [displayRegisterPrompt, setDisplayRegisterPrompt] = useState(false);
     const [currentSearchValue, setCurrentSearchValue] = useState("");
+
+    const [displaySearchBar, setDisplaySearchBar] = useState(false);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname == "/") {
+            setDisplaySearchBar(false);
+        } else {
+            setDisplaySearchBar(true);
+        }
+    }, [location])
 
 
     function hideProfileDropdown() {
@@ -144,9 +156,9 @@ const TopBar = () => {
                     <Link className="home-button topbar-item" exact to='' >
                         <HomeSVG className="topbar-home-svg" />
                     </Link>
-                <div className="topbar-item" onBlur={toggleResultsDropdown} onFocus={showResults} tabIndex="2">
+                {displaySearchBar && <div className="topbar-item" onBlur={toggleResultsDropdown} onFocus={showResults} tabIndex="2">
                     <SearchBar updateQuery={updateQuery} displayResults={displayResults} updateClickOnInput={showResults} currentSearchValue={currentSearchValue}/>
-                </div>
+                </div>}
                 <div id="topbar-buttons" >
                     <div className="topbar-button topbar-item" onBlur={toggleCreatePageDropdown} onFocus={toggleCreatePageDropdown} tabIndex="1">
                         <CreateSVG className="topbar-item-svg" />
