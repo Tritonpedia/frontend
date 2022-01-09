@@ -164,7 +164,7 @@
     min-width: 100px;
     padding: 1rem;
     overflow: hidden;
-    z-index: 51;
+    z-index: 200;
 }
 
 .profile-dropdown {
@@ -175,7 +175,7 @@
     min-width: 100px;
     padding: 1rem;
     overflow: hidden;
-    z-index: 50;
+    z-index: 200;
 }
 
 .profile-dropdown :first-child, .create-page-dropdown :first-child {

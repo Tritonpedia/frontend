@@ -20,23 +20,7 @@ const Home = () => {
 
 
  
-    return (
-      <div> 
-        {/* // <div style={{ position: "absolute", top: 0 }}> */}
-            {/* <LoginDialog show={loginDialogShown} hide={hideLoginDialog}/>
-            <DeleteDialog show={deleteDialogShown} hide={hideDeleteDialog}/>
-            <SignupDialog show={signupDialogShown} hide={hideSignupDialog}/>
-            <PasswordDialog show={passwordDialogShown} hide={hidePasswordDialog}/>
-            
-            <button onClick={showLoginDialog}>login</button>
-            <button onClick={showDeleteDialog} >delete</button>
-            <button onClick={showSignupDialog} >signup</button>
-            <button onClick={showPasswordDialog} >password</button>
-             <LandingPage></LandingPage> */}
-            {/* <button onClick={showPasswordDialog} >password</button> */}
-            <LandingPage />
-        </div>
-    )
+    return <LandingPage />;
 }
 
 export default Home;

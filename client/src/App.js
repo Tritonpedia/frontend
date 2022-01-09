@@ -54,11 +54,11 @@ function App() {
   }, [setUser])
 
   return (
-    <div>
+    <div className='overflow-x-hidden'>
       <Router>
         <TopBar />
         <div className="main-container">
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="page-container">
             <Switch>
               <Route exact path='/' component={home} />
