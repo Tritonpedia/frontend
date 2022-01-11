@@ -20,13 +20,14 @@ const LandingPage = () => {
                     <h1 className="text-3xl font-bold pl-3">Tritonpedia</h1>
                 </div>
                 <div className='flex justify-center items-center h-full w-full'>
-                    <input
+                    <SearchBar />
+                    {/* <input
                         type="text"
                         id="search-input"
                         placeholder="search"
                         name="search-input"
                         className='bg-gray-200 rounded-3xl p-4'
-                    />
+                    /> */}
                 </div>
             </div>
             <div style={{ position: "absolute", top: 0 }}>

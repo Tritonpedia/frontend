@@ -54,15 +54,10 @@ const CreatePageDropdown = (props) => {
 }
 
 const TopBar = () => {
-
-    const [searchQuery, setSearchQuery] = useState("");
-    const [displayResults, setDisplayResults] = useState(false);
     const [displayCreatePageDropdown, setCreatePageDropdown] = useState(false);
     const [displayProfileDropdown, setDisplayProfileDropdown] = useState(false);
     const [displayLoginPrompt, setDisplayLoginPrompt] = useState(false);
     const [displayRegisterPrompt, setDisplayRegisterPrompt] = useState(false);
-    const [currentSearchValue, setCurrentSearchValue] = useState("");
-
     const [displaySearchBar, setDisplaySearchBar] = useState(false);
 
     const location = useLocation();
@@ -100,21 +95,6 @@ const TopBar = () => {
         setDisplayRegisterPrompt(false);
     }
 
-    function updateQuery(query) {
-        setSearchQuery(query);
-    }
-
-    function updateShowResults(showResults) {
-        setDisplayResults(showResults);
-    }
-
-    function updateSearchValue(value) {
-        setCurrentSearchValue(value);
-    }
-
-    function showResults(){
-        setDisplayResults(true);
-    }
 
     function toggleProfileDropdown(event) {
         if (!event.relatedTarget ) {
@@ -138,27 +118,15 @@ const TopBar = () => {
         }
     }
 
-    function toggleResultsDropdown(event) {
-        if (!event.relatedTarget) {
-            setDisplayResults(!displayResults);
-        }
-    }
-
-    useEffect(() => {
-        if (searchQuery && searchQuery !== "") {
-            setDisplayResults(true);
-        }
-    }, [searchQuery])
-
     return (
         <div>
             <div className="topbar-container">
                     <Link className="home-button topbar-item" exact to='' >
                         <HomeSVG className="topbar-home-svg" />
                     </Link>
-                {displaySearchBar && <div className="topbar-item" onBlur={toggleResultsDropdown} onFocus={showResults} tabIndex="2">
-                    <SearchBar updateQuery={updateQuery} displayResults={displayResults} updateClickOnInput={showResults} currentSearchValue={currentSearchValue}/>
-                </div>}
+                <div id="search-input" className='topbar-item'>
+                    {displaySearchBar && <SearchBar />}
+                </div>
                 <div id="topbar-buttons" >
                     <div className="topbar-button topbar-item" onBlur={toggleCreatePageDropdown} onFocus={toggleCreatePageDropdown} tabIndex="1">
                         <CreateSVG className="topbar-item-svg" />
@@ -168,9 +136,6 @@ const TopBar = () => {
                     </div>
                 </div>
             </div>
-            {displayResults &&
-                <SearchResults query={searchQuery} updateShowResults={updateShowResults} updateSearchValue={updateSearchValue} />
-            }
             {displayCreatePageDropdown && <CreatePageDropdown hideCreatePageDropdown={hideCreatePageDropdown}/>}
             {displayProfileDropdown && <ProfileDropdown hideProfileDropdown={hideProfileDropdown} showLogin={showLogin} showRegister={showRegister}/>}
             <div className="login-wrapper">

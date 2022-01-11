@@ -41,24 +41,25 @@
 }
 
 .search-input-top-borders {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .search-input-all-borders {
-    border-radius: 5px;
+    border-radius: 1rem;
 }
 
 #search-results-container {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: baseline;
     align-items: baseline;
     align-content: flex-start;
-    margin-left: 15vw;
-    padding: 0;
+    /* margin-left: 15vw; */
+    margin-top: 1rem;
+    /* padding: 0; */
 }
 
 #search-results {
