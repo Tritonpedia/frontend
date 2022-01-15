@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { LoginDialog, SignupDialog } from '../../popups/dialogs';
 import SearchBar from '../../topBarComponents/SearchBar';
 import './LandingPage.css'

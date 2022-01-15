@@ -4,7 +4,6 @@ import { ReactComponent as HomeSVG } from './res/home.svg';
 import { ReactComponent as ProfileSVG } from './res/profile.svg';
 import { ReactComponent as CreateSVG } from './res/create.svg';
 
-import SearchResults from './SearchResults';
 import SearchBar from './SearchBar'
 import { Link, useLocation } from 'react-router-dom';
 import { LoginDialog, SignupDialog } from '../popups/dialogs';
@@ -63,7 +62,7 @@ const TopBar = () => {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.pathname == "/") {
+        if (location.pathname === "/") {
             setDisplaySearchBar(false);
         } else {
             setDisplaySearchBar(true);

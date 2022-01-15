@@ -5,7 +5,7 @@ function successPage(){
 
     return(
         
-        <div className="spacing" className="successBackground">
+        <div className="spacing successBackground">
             <div className="successDialog">
                 <p>Successfully submitted!</p>
                 <p>Thank you for creating a new page.</p>

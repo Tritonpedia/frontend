@@ -23,10 +23,6 @@ const SearchBar = () => {
         }
     }
 
-    function updateQuery(query) {
-        setSearchQuery(query);
-    }
-
     function toggleResultsDropdown(event) {
         if (!event.relatedTarget) {
             setDisplayResults(!displayResults);
@@ -53,8 +49,8 @@ const SearchBar = () => {
     }
 
     useEffect(() => {
-        updateQuery(query);
-    }, [query, updateQuery]);
+        setSearchQuery(query);
+    }, [query]);
 
     useEffect(() => {
         if (currentSearchValue) {

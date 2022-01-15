@@ -3,7 +3,7 @@ import createPageClass from './homeComponents/createPageClass';
 import createPageSection from './homeComponents/createPageSection';
 import successPage from './homeComponents/successPage';
 import TopBar from './topBarComponents/TopBar'
-import Navbar from './navbar/Navbar';
+// import Navbar from './navbar/Navbar';
 import home from './homeComponents/home'
 import CourseArticle, { BlankCourse } from './article/CourseArticle';
 import OrgArticle, { BlankOrg } from './article/OrgArticle';
