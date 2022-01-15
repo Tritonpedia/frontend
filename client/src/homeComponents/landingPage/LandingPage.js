@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { LoginDialog, SignupDialog } from '../../popups/dialogs';
+import SearchBar from '../../topBarComponents/SearchBar';
 import './LandingPage.css'
 import { ReactComponent as HomeSVG } from './res/home.svg';
 
@@ -12,26 +13,27 @@ const LandingPage = () => {
     function showLoginDialog() { setShowLoginDialog(true); }
     function showSignupDialog() { setShowSignupDialog(true); }
     return (
-        <div style={{position: 'relative'}}>
-            <div className="landing-wrapper"></div>
-        <div className="landing-container">
-            <h1>Tritonpedia</h1>
-            <div className="landing-icon-container">
-                <HomeSVG className="landing-svg" />
-                <Link exact to="/courses" style={{ position: 'absolute', top: '20%', right: '70%' }}>Courses</Link>
-                <Link exact to="/createPageClass" style={{ position: 'absolute', top: '40%', right: '72%' }}>Create Course</Link>
-                <Link exact to="/orgs" style={{ position: 'absolute', top: '60%', right: '70%' }}>Orgs</Link>
-                <Link onClick={showLoginDialog} style={{ position: 'absolute', top: '20%', left: '70%' }}>Login</Link>
-                <Link onClick={showSignupDialog} style={{ position: 'absolute', top: '40%', left: '72%' }}>Register</Link>
-                <Link exact to="/userProfile" style={{ position: 'absolute', top: '60%', left: '70%' }}>Profile</Link>
-                <Link exact to="/createPageOrg" style={{ position: 'absolute', top: '80%', right: '60%' }}>Create Org</Link>
-                <Link exact to="/orgs/ACM" style={{ position: 'absolute', top: '80%', left: '60%' }}>ACM</Link>
+        <div className="flex flex-col pt-[30vh] items-center  landing-container h-full bg-blue-200">
+            <div className='flex flex-col items-center'>
+                <div className='flex items-center'>
+                    <HomeSVG className="w-20" />
+                    <h1 className="text-3xl font-bold pl-3">Tritonpedia</h1>
+                </div>
+                <div className='flex justify-center items-center h-full w-full'>
+                    <SearchBar />
+                    {/* <input
+                        type="text"
+                        id="search-input"
+                        placeholder="search"
+                        name="search-input"
+                        className='bg-gray-200 rounded-3xl p-4'
+                    /> */}
+                </div>
             </div>
             <div style={{ position: "absolute", top: 0 }}>
                 {loginDialogShown && <LoginDialog show={showLoginDialog} hide={hideLoginDialog} />}
                 {signupDialogShown && <SignupDialog show={showSignupDialog} hide={hideSignupDialog} />}
             </div>
-        </div>
         </div>
     )
 }

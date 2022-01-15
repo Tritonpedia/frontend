@@ -1,19 +1,19 @@
 .landing-container {
 	text-align: center;
 	font-family: 'Montserrat';
-	margin: 5% 0 0 0;
+	/* margin: 5% 0 0 0; */
 	z-index: 100;
-	position: absolute;
+	/* position: absolute; */
 	top: 0;
-	left: 25%;
-	right: 25%;
+	/* left: 25%;
+	right: 25%; */
 }
 
 .landing-wrapper {
-	background: url('./res/giesel.jpeg');
+	/* background: url('./res/giesel.jpeg');
 	background-size: cover;
 	background-repeat: repeat;
-	filter: blur(9px);
+	filter: blur(9px); */
 	height: 100vh;
 	top: 0;
 }

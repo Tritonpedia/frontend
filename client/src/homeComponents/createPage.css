@@ -120,3 +120,9 @@ button {
     margin-right: 30%;
     margin-top: 20%;
 }
+
+.successBackground {
+    background-image: url(https://rady.ucsd.edu/images/start-me-up/background2.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+}

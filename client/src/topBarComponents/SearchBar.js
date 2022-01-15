@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
+import SearchResults from './SearchResults';
 import './TopBar.css';
 
-const SearchBar = (props) => {
+const SearchBar = () => {
     const targetRef = useRef();
     const [query, setQuery] = useState("");
-    const { updateQuery, displayResults, updateClickOnInput, currentSearchValue } = props;
+    const [searchQuery, setSearchQuery] = useState("");
     const [currentValue, setCurrentValue] = useState("");
+    const [displayResults, setDisplayResults] = useState(false);
+    const [currentSearchValue, setCurrentSearchValue] = useState("");
 
 
     const handleInput = event => {
@@ -15,33 +18,65 @@ const SearchBar = (props) => {
 
     const handleClick = event => {
         if (event.current) {
-            updateClickOnInput(true)
+            setDisplayResults(true);
+            // updateClickOnInput(true);
         }
     }
 
+    function toggleResultsDropdown(event) {
+        if (!event.relatedTarget) {
+            setDisplayResults(!displayResults);
+        }
+    }
+
+    function showResults(){
+        setDisplayResults(true);
+    }
+
     useEffect(() => {
-        updateQuery(query);
-    }, [query, updateQuery]);
-    
+        if (searchQuery && searchQuery !== "") {
+            setDisplayResults(true);
+        }
+    }, [searchQuery])
+
+
+    function updateShowResults(showResults) {
+        setDisplayResults(showResults);
+    }
+
+    function updateSearchValue(value) {
+        setCurrentSearchValue(value);
+    }
+
     useEffect(() => {
-        if(currentSearchValue) {
+        setSearchQuery(query);
+    }, [query]);
+
+    useEffect(() => {
+        if (currentSearchValue) {
             setCurrentValue(currentSearchValue);
         }
     }, [currentSearchValue])
 
     return (
-        <div id="search-bar" className="topbar-item">
-            <input
-                type="text"
-                id="search-input"
-                className={displayResults ? "search-input-top-borders" : "search-input-all-borders"}
-                ref={targetRef}
-                placeholder="search"
-                name="search-input"
-                value={currentValue}
-                onInput={handleInput}
-                onClick={handleClick}
-            />
+        <div>
+            <div onBlur={toggleResultsDropdown} onFocus={showResults} tabIndex="2">
+                <input
+                    type="text"
+                    id="search-input"
+                    className={displayResults ? "search-input-top-borders bg-gray p-2" : "search-input-all-borders bg-gray p-2"}
+                    ref={targetRef}
+                    placeholder="search"
+                    name="search-input"
+                    value={currentValue}
+                    onInput={handleInput}
+                    onClick={handleClick}
+                />
+            </div>
+            {displayResults && <div className='relative'>
+                <SearchResults query={searchQuery} updateShowResults={updateShowResults} updateSearchValue={updateSearchValue} />
+                </div>
+            }
         </div>
     );
 }

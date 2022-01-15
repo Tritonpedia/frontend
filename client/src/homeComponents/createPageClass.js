@@ -1,6 +1,9 @@
 import React from 'react'
 import "./createPage.css";
 //import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL; 
+
 function createPageClass() {
 
     let coverImageInput;
@@ -64,7 +67,7 @@ function createPageClass() {
 
         console.log(postBody);
 
-        fetch(`https://glacial-ocean-22444.herokuapp.com/class/${typeInput.value}`, {
+        fetch(`${REACT_APP_BACKEND_URL}/class/${typeInput.value}`, {
             method: 'POST', 
             headers: {
                 'content-type': "application/json",
@@ -72,7 +75,7 @@ function createPageClass() {
             }
         }).then(response => {
             if (!response.json()["value"]) {
-                fetch(`https://glacial-ocean-22444.herokuapp.com/department/`, {
+                fetch(`${REACT_APP_BACKEND_URL}/department/`, {
                     method: 'POST',
                     headers: {
                         'content-type': "application/json",
@@ -82,7 +85,7 @@ function createPageClass() {
                         name: typeInput.value
                     })
                 }).then(() => {
-                    fetch(`https://glacial-ocean-22444.herokuapp.com/class/${typeInput.value
+                    fetch(`${REACT_APP_BACKEND_URL}/class/${typeInput.value
                         }`, {
                         method: 'POST',
                         headers: {
@@ -94,7 +97,7 @@ function createPageClass() {
 
                 });
             } else {
-                fetch(`https://glacial-ocean-22444.herokuapp.com/class/${typeInput.value}`, {
+                fetch(`${REACT_APP_BACKEND_URL}/class/${typeInput.value}`, {
                     method: 'POST',
                     headers: {
                         'content-type': "application/json",
@@ -114,7 +117,7 @@ function createPageClass() {
             <div className="fullPage">
                 <div id="buttonsDiv">
                     <a href="/">
-                        <button style={{ backgroundColor: "transparent", border: "none" }}>
+                        <button className='bg-gray-300 rounded-md hover:bg-blue-300 transition-all'>
                             Back<i className='fas fa-arrow-left'></i>
                         </button>
                     </a>
@@ -126,10 +129,10 @@ function createPageClass() {
                     </a>
                 </div>
 
-                <div id="formDiv" className="spacing">
+                <div id="formDiv" className="spacing px-64">
                     <form onSubmit={e => handleSubmit(e)} style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
                         <label className="spacing yellow">Department</label>
-                        <input id="typeInput" className="textbox " style={{ type: "text", height: "30px", fontSize: "18px", fontFamily: "Montserrat, sans-serif", zIndex: "5" }} required></input>
+                        <input id="text" className="textbox " style={{ type: "text", height: "30px", fontSize: "18px", fontFamily: "Montserrat, sans-serif", zIndex: "5" }} required />
 
                         <label id="largetextbox" className="spacing yellow">Course Name</label>
                         <input id="titleInput" className="textbox" style={{ type: "text", height: "30px", fontSize: "18px", fontFamily: "Montserrat, sans-serif", zIndex: "5" }} required></input>

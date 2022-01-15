@@ -9,6 +9,7 @@ import { EnrollDialog, LoginDialog } from '../popups/dialogs';
 import { EditSection } from './EditArticle';
 import { UserContext } from '../contexts/UserContext';
 
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL; 
 
 function getLectureDays(lecture_times) {
     const days = lecture_times.split(" ")[0];
@@ -297,7 +298,7 @@ function SectionContent(props) {
     const updateIsEnrolled = useCallback(() => {
         if (user.enrolled_sections) {
             user.enrolled_sections.forEach(element => {
-                fetch(`https://glacial-ocean-22444.herokuapp.com/enrolled_section/${element}`, {
+                fetch(`${REACT_APP_BACKEND_URL}/enrolled_section/${element}`, {
                     headers: {
                         'auth_token': user.token
                     }
@@ -306,7 +307,7 @@ function SectionContent(props) {
                     .then(data => {
                         console.log(data);
                         if (data) {
-                            fetch(`https://glacial-ocean-22444.herokuapp.com/section/${data["section_id"]}`)
+                            fetch(`${REACT_APP_BACKEND_URL}/section/${data["section_id"]}`)
                                 .then(response => response.json())
                                 .then(sectionData => {
                                     if (sectionData._id === section._id) {

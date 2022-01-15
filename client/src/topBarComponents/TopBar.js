@@ -4,9 +4,8 @@ import { ReactComponent as HomeSVG } from './res/home.svg';
 import { ReactComponent as ProfileSVG } from './res/profile.svg';
 import { ReactComponent as CreateSVG } from './res/create.svg';
 
-import SearchResults from './SearchResults';
 import SearchBar from './SearchBar'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { LoginDialog, SignupDialog } from '../popups/dialogs';
 import { UserContext } from '../contexts/UserContext';
 
@@ -54,14 +53,21 @@ const CreatePageDropdown = (props) => {
 }
 
 const TopBar = () => {
-
-    const [searchQuery, setSearchQuery] = useState("");
-    const [displayResults, setDisplayResults] = useState(false);
     const [displayCreatePageDropdown, setCreatePageDropdown] = useState(false);
     const [displayProfileDropdown, setDisplayProfileDropdown] = useState(false);
     const [displayLoginPrompt, setDisplayLoginPrompt] = useState(false);
     const [displayRegisterPrompt, setDisplayRegisterPrompt] = useState(false);
-    const [currentSearchValue, setCurrentSearchValue] = useState("");
+    const [displaySearchBar, setDisplaySearchBar] = useState(false);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname === "/") {
+            setDisplaySearchBar(false);
+        } else {
+            setDisplaySearchBar(true);
+        }
+    }, [location])
 
 
     function hideProfileDropdown() {
@@ -88,21 +94,6 @@ const TopBar = () => {
         setDisplayRegisterPrompt(false);
     }
 
-    function updateQuery(query) {
-        setSearchQuery(query);
-    }
-
-    function updateShowResults(showResults) {
-        setDisplayResults(showResults);
-    }
-
-    function updateSearchValue(value) {
-        setCurrentSearchValue(value);
-    }
-
-    function showResults(){
-        setDisplayResults(true);
-    }
 
     function toggleProfileDropdown(event) {
         if (!event.relatedTarget ) {
@@ -126,26 +117,14 @@ const TopBar = () => {
         }
     }
 
-    function toggleResultsDropdown(event) {
-        if (!event.relatedTarget) {
-            setDisplayResults(!displayResults);
-        }
-    }
-
-    useEffect(() => {
-        if (searchQuery && searchQuery !== "") {
-            setDisplayResults(true);
-        }
-    }, [searchQuery])
-
     return (
         <div>
             <div className="topbar-container">
                     <Link className="home-button topbar-item" exact to='' >
                         <HomeSVG className="topbar-home-svg" />
                     </Link>
-                <div className="topbar-item" onBlur={toggleResultsDropdown} onFocus={showResults} tabIndex="2">
-                    <SearchBar updateQuery={updateQuery} displayResults={displayResults} updateClickOnInput={showResults} currentSearchValue={currentSearchValue}/>
+                <div id="search-input" className='topbar-item'>
+                    {displaySearchBar && <SearchBar />}
                 </div>
                 <div id="topbar-buttons" >
                     <div className="topbar-button topbar-item" onBlur={toggleCreatePageDropdown} onFocus={toggleCreatePageDropdown} tabIndex="1">
@@ -156,9 +135,6 @@ const TopBar = () => {
                     </div>
                 </div>
             </div>
-            {displayResults &&
-                <SearchResults query={searchQuery} updateShowResults={updateShowResults} updateSearchValue={updateSearchValue} />
-            }
             {displayCreatePageDropdown && <CreatePageDropdown hideCreatePageDropdown={hideCreatePageDropdown}/>}
             {displayProfileDropdown && <ProfileDropdown hideProfileDropdown={hideProfileDropdown} showLogin={showLogin} showRegister={showRegister}/>}
             <div className="login-wrapper">

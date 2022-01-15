@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import './TopBar.css';
 
-
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL; 
 
 /**
  * 
@@ -42,12 +42,12 @@ const SearchResults = (props) => {
 
     function fetchContentList() {
         let entries = [];
-        fetch(`https://glacial-ocean-22444.herokuapp.com/department`)
+        fetch(`${REACT_APP_BACKEND_URL}/department`)
             .then(response => response.json())
             .then(data => {
                 data.departments.forEach(department => {
                     department.classes.forEach(course => {
-                        fetch(`https://glacial-ocean-22444.herokuapp.com/class/${course}`)
+                        fetch(`${REACT_APP_BACKEND_URL}/class/${course}`)
                             .then(response => response.json())
                             .then(data => {
                                 data.department = department.name;
@@ -59,7 +59,7 @@ const SearchResults = (props) => {
             .catch(error => {
                 console.error(error);
             })
-        fetch(`https://glacial-ocean-22444.herokuapp.com/organization`)
+        fetch(`${REACT_APP_BACKEND_URL}/organization`)
             .then(response => response.json())
             .then(data => {
                 data.organizations.forEach(element => {

@@ -4,10 +4,10 @@ import { UserContext } from '../contexts/UserContext';
 import './dialogs.css';
 
 
-const loginUrl = "https://glacial-ocean-22444.herokuapp.com/users/login";
-const signupUrl = "https://glacial-ocean-22444.herokuapp.com/users/register";
-const resetPasswordUrl = "https://glacial-ocean-22444.herokuapp.com/users/changePassword";
-// const enrollUrl = "https://glacial-ocean-22444.herokuapp.com/enrolled_section";
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL; 
+const loginUrl = `${REACT_APP_BACKEND_URL}/users/login`;
+const signupUrl = `${REACT_APP_BACKEND_URL}/users/register`;
+const resetPasswordUrl = `${REACT_APP_BACKEND_URL}/users/changePassword`;
 
 const userAPI = {
   login: async function (email, password) {
@@ -379,7 +379,7 @@ export function EnrollDialog({ show, hide, section, updateIsEnrolled }) {
     //   return;
     // }
     e.preventDefault();
-    fetch(`https://glacial-ocean-22444.herokuapp.com/enrolled_section/${section._id}`, {
+    fetch(`${REACT_APP_BACKEND_URL}/${section._id}`, {
       method: 'POST',
       credentials: 'same-origin',
       headers: {

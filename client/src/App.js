@@ -3,7 +3,7 @@ import createPageClass from './homeComponents/createPageClass';
 import createPageSection from './homeComponents/createPageSection';
 import successPage from './homeComponents/successPage';
 import TopBar from './topBarComponents/TopBar'
-import Navbar from './navbar/Navbar';
+// import Navbar from './navbar/Navbar';
 import home from './homeComponents/home'
 import CourseArticle, { BlankCourse } from './article/CourseArticle';
 import OrgArticle, { BlankOrg } from './article/OrgArticle';
@@ -17,14 +17,16 @@ import {
 
 import './App.css';
 import UserProfile from './userProfile/UserProfile';
-// import { LoginDialog } from './popups/dialogs';
 import SectionArticle from './article/SectionArticle';
 import { UserContext } from './contexts/UserContext';
 import { useContext, useEffect } from 'react';
 
-const server = "https://glacial-ocean-22444.herokuapp.com/"
-const getProfileUrl = `${server}/users/profile`;
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL; 
+const getProfileUrl = `${REACT_APP_BACKEND_URL}/users/profile`;
 
+/**
+ * Root level App component
+ */
 function App() {
 
   const { setUser } = useContext(UserContext);
@@ -52,11 +54,11 @@ function App() {
   }, [setUser])
 
   return (
-    <div>
+    <div className='overflow-x-hidden'>
       <Router>
         <TopBar />
         <div className="main-container">
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="page-container">
             <Switch>
               <Route exact path='/' component={home} />

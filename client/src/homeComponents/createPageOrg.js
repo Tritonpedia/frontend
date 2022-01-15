@@ -1,5 +1,8 @@
 import React from 'react'
 import "./createPage.css";
+
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL; 
+
 function createPageOrg(){
 
     let coverImageInput;
@@ -72,7 +75,7 @@ function createPageOrg(){
             website: websiteInput.value,
         }
 
-        fetch(`https://glacial-ocean-22444.herokuapp.com/organization`, {
+        fetch(`${REACT_APP_BACKEND_URL}/organization`, {
             method: 'POST', 
             headers: {
                 'content-type': "application/json",
