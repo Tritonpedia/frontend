@@ -4,6 +4,9 @@ name: CI
 
 # Controls when the action will run. 
 on:
+  push:
+    branches:
+      - main
   pull_request:
       
 # Allows you to run this workflow manually from the Actions tab
@@ -17,10 +20,10 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
     - name: Install modules
-      working-directory: ./client
+      working-directory: ./ 
       run: yarn
     - name: build client 
-      working-directory: ./client
+      working-directory: ./
       run: yarn run build
   docs:
     if: github.event.pull_request.base.ref == 'main' || github.event.pull_request.base.ref == 'testing'
